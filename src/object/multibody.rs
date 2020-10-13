@@ -1378,6 +1378,11 @@ impl<N: RealField> MultibodyDesc<N> {
         self
     }
 
+    /// Returns the joints of this multibody builder.
+    pub fn get_joint(&self) -> &dyn Joint<N> {
+        &*self.joint
+    }
+
     #[cfg(feature = "dim2")]
     desc_custom_setters!(
         self.angular_inertia,
