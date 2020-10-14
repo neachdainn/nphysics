@@ -1378,9 +1378,14 @@ impl<N: RealField> MultibodyDesc<N> {
         self
     }
 
-    /// Returns the joints of this multibody builder.
+    /// Returns the joint of this multibody builder.
     pub fn get_joint(&self) -> &dyn Joint<N> {
         &*self.joint
+    }
+
+    /// Returns a mutable reference to the joint of the builder.
+    pub fn joint_mut(&mut self) -> &mut dyn Joint<N> {
+        &mut *self.joint
     }
 
     #[cfg(feature = "dim2")]
